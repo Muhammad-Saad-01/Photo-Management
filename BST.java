@@ -3,6 +3,7 @@ class BSTNode<T> {
     public T data;
     public BSTNode<T> left, right;
 
+
     public BSTNode(String key, T data) {
         this.key = key;
         this.data = data;
@@ -24,6 +25,7 @@ class BSTNode<T> {
 public class BST<T> {
 
     private BSTNode<T> root, current;
+    private int numberOfComparisons;
 
     public BST() {
         current = root = null;
@@ -46,7 +48,7 @@ public class BST<T> {
     }
 
     public boolean findKey(String k) {
-
+        numberOfComparisons = 0;
         BSTNode<T> p = root;
         while (p != null) {
             current = p;
@@ -57,6 +59,7 @@ public class BST<T> {
             } else {
                 p = p.right;
             }
+            numberOfComparisons++;
         }
         return false;
     }
@@ -154,11 +157,12 @@ public class BST<T> {
     public BSTNode<T> getRoot() {
         return root;
     }
-    public void printPreOrder(BSTNode<T> node){
+
+    public void printPreOrder(BSTNode<T> node) {
         if (node == null)
             return;
         // now deal with the node
-        System.out.println(node.key+" :: "+node.data + " ");
+        System.out.println(node.key + " :: " + node.data + " ");
         // first recur on left subtree
         printPreOrder(node.left);
 
@@ -167,20 +171,22 @@ public class BST<T> {
 
 
     }
-    public void printInOrder(BSTNode<T> node){
+
+    public void printInOrder(BSTNode<T> node) {
         if (node == null)
             return;
 
         // first recur on left subtree
         printInOrder(node.left);
         // now deal with the node
-        System.out.println(node.key+" :: "+node.data + " ");
+        System.out.println(node.key + " :: " + node.data + " ");
         // then recur on right subtree
         printInOrder(node.right);
 
 
     }
-    public void printPostOrder(BSTNode<T> node){
+
+    public void printPostOrder(BSTNode<T> node) {
         if (node == null)
             return;
 
@@ -191,8 +197,9 @@ public class BST<T> {
         printPostOrder(node.right);
 
         // now deal with the node
-        System.out.println(node.key+" :: "+node.data + " ");
+        System.out.println(node.key + " :: " + node.data + " ");
     }
+
     @Override
     public String toString() {
         if (root == null)
@@ -200,6 +207,9 @@ public class BST<T> {
         return root.toString();
     }
 
+    public int getNumberOfComparisons() {
+        return numberOfComparisons;
+    }
 
 }
 

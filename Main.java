@@ -1,48 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        BST<String> bst = new BST<>();
-        bst.insert("1", "M");
-        bst.insert("2", "M");
-        bst.insert("3", "M");
-        bst.insert("4", "M");
-        bst.insert("5", "M");
-        bst.insert("6", "M");
-        bst.insert("7", "M");
-        LinkedList<Integer> list = new LinkedList<>();
-        list.insert(10);
-        list.insert(5);
-        list.insert(25);
-        list.update(7);
-        list.findFirst();
-        list.findNext();
-        System.out.println(list.retrieve());
-
-        LinkedList<String> animalsList = new LinkedList<>();
-        animalsList.insert("dog");
-        animalsList.insert("cat");
-        animalsList.insert("donkey");
-        animalsList.insert("monkey");
-        LinkedList<String> animalsList2 = new LinkedList<>();
-        animalsList2.insert("dog2");
-        animalsList2.insert("cat2");
-        animalsList2.insert("donkey2");
-        animalsList2.insert("monkey2");
-
-        System.out.println(animalsList);
-        LinkedList<LinkedList<String>> tagsList = new LinkedList<>();
-
-        tagsList.insert(animalsList);
-        tagsList.insert(animalsList);
-        tagsList.insert(animalsList);
-        System.out.println(tagsList);
-        Photo a = new Photo("cat.png", animalsList);
-        Photo b = new Photo("dog.png", animalsList);
-        Photo c = new Photo("monkey.png", animalsList);
-        Photo d = new Photo("donkey.png", animalsList);
-
-        Photo p1 = creatPhoto("butterfly2.jpg", "insect", "butterfly", "flower", "black");
-        Photo p2 = creatPhoto("butterfly2.jpg", "insect", "butterfly", "flower", "black");
-
 
         PhotoManager pm = testAdd();
         testDelete();
@@ -58,29 +15,38 @@ public class Main {
         System.out.println("****Album 1****");
         Album a = new Album("A", "", pm);
         System.out.println(a.getPhotos());
+        System.out.println(a.getNbComps());
+
         System.out.println("****Album 2****");
         Album b = new Album("B", "bear", pm);
         System.out.println(b.getPhotos());
-//
+        System.out.println(b.getNbComps());
+
         System.out.println("****Album 3****");
         Album ag = new Album("ab", "animal AND grass", pm);
         System.out.println(ag.getPhotos());
+        System.out.println(ag.getNbComps());
 
         System.out.println("****Album 4****");
         ag = new Album("ab2", "grass AND animal", pm);
         System.out.println(ag.getPhotos());
-//
+        System.out.println(ag.getNbComps());
+
         System.out.println("****Album 5****");
         Album e = new Album("R", "fsdfg", pm);
         System.out.println(e.getPhotos());
+        System.out.println(e.getNbComps());
 
         System.out.println("****Album 6****");
         e = new Album("R2", "grass AND fsdfg", pm);
         System.out.println(e.getPhotos());
+        System.out.println(e.getNbComps());
 
         System.out.println("****Album 7****");
         Album s = new Album("R", "snow AND bear", pm);
         System.out.println(s.getPhotos());
+        System.out.println(s.getNbComps());
+
 //
     }
 

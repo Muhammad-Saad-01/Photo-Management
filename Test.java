@@ -1,3 +1,13 @@
+class Test{
+    public static void main(String[] args) {
+        System.out.println("****** Test 1 ******");
+        Test1.main(new String[]{});
+        System.out.println("****** Test 2 ******");
+        Test2.main(new String[]{});
+    }
+}
+
+
 class Test1 {
 
     public static void main(String[] args) {
@@ -1046,7 +1056,7 @@ class Test12 {
         pm.addPhoto(p7);
         pm.addPhoto(p8);
 
-        Album a = new Album("bears", "animalANDgrass", pm);
+        Album a = new Album("bears", "animal AND grass", pm);
 
         LinkedList<Photo> PhotosOfA = a.getPhotos();
 

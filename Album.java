@@ -12,6 +12,7 @@ public class Album {
         this.condition = condition;
         this.manager = manager;
         photosList = new LinkedList<>();
+        numberOfComparisons = 0;
     }
 
     // Return the name of the album
@@ -31,29 +32,23 @@ public class Album {
 
     // Return all photos that satisfy the album condition
     public LinkedList<Photo> getPhotos() {
-//        System.out.println("------------------- GetPhotos ----------------");
         photosList = new LinkedList<>();
         BST<LinkedList<Photo>> bst = manager.getPhotos();
 
         if (condition == null || condition.length() == 0) {
-//            System.out.println("co**");
-            //bst.printPreOrder(bst.getRoot());
             getAllPhotos(bst.getRoot());
 
         } else {
             String[] conditions = condition.trim().split(" AND ");
 
-//            System.out.println("Conditions --> " + Arrays.toString(conditions) + " ,Length = " + conditions.length);
-
 
             for (String s : conditions) {
-//                System.out.println("Condition *" + s + "*");
                 if (s.length() != 0 && !bst.findKey(s)) {
                     return new LinkedList<>();
                 }
                 if (s.length() != 0 && bst.findKey(s)) {
+                    numberOfComparisons =+ bst.getNumberOfComparisons();
                     LinkedList<Photo> photos = bst.retrieve();
-//                    System.out.println(photos);
                     photos.findFirst();
                     while (photos.isThereNext()) {
                         Photo photo = photos.retrieve();
@@ -62,20 +57,15 @@ public class Album {
                         int counter = 0;
                         while (tagsList.isThereNext()) {
                             for (String c : conditions) {
-//                                System.out.println(tagsList.retrieve().trim() + " -- " + s.trim());
-//                                System.out.println(tagsList.retrieve().equals(s.trim()));
                                 if (c.length() != 0 && tagsList.retrieve().trim().equals(c)) {
                                     counter++;
                                 }
-
                             }
-//                            System.out.println(conditions.length + " =----= " + counter + " =----= " + Arrays.toString(conditions));
 
                             if (!photosList.find(photo) && conditions.length == counter)
                                 photosList.insert(photo);
                             tagsList.findNext();
                         }
-
 
                         photos.findNext();
                     }
@@ -84,7 +74,6 @@ public class Album {
 
 
         }
-//        System.out.println("after Conditions  ");
         return photosList;
     }
 
@@ -92,15 +81,12 @@ public class Album {
 
         if (node == null)
             return;
-        // now deal with the node
-//        System.out.println(node.key+" :: "+node.data + " ");
+
         LinkedList<Photo> photos = node.data;
-//                System.out.println(photos);
         photos.findFirst();
         while (photos.isThereNext()) {
             Photo photo = photos.retrieve();
             if (!photosList.find(photo)) {
-//                System.out.println(node.key + " --> " + photo);
                 photosList.insert(photo);
             }
 
@@ -117,6 +103,6 @@ public class Album {
 
     // Return the number of tag comparisons used to find all photos of the album
     public int getNbComps() {
-        return 0;
+        return numberOfComparisons;
     }
 }
