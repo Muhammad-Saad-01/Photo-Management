@@ -35,14 +35,13 @@ public class Main {
         Photo d = new Photo("donkey.png", animalsList);
 
         PhotoManager pm = testAdd();
-        /*testDelete();
-        testGetPhotos(pm);*/
+        testDelete();
+        /* testGetPhotos(pm);*/
 
 
     }
 
     //these are some simple test cases that cover the basic utility of the PA
-
 
 
     private static void testGetPhotos(PhotoManager pm) {

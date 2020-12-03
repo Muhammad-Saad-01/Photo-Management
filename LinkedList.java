@@ -25,7 +25,7 @@ public class LinkedList<T> {
     }
 
     public boolean isThereNext() {
-        return current == null;
+        return current != null;
     }
 
     public boolean full() {

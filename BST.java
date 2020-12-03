@@ -151,6 +151,10 @@ public class BST<T> {
         }
     }
 
+    public BSTNode<T> getRoot() {
+        return root;
+    }
+
     @Override
     public String toString() {
         if (root == null)
