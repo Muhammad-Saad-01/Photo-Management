@@ -1,25 +1,35 @@
 public class PhotoManager {
     BST<LinkedList<Photo>> bst;
-    LinkedList<Photo> photosList;
+
 
     // Constructor
     public PhotoManager() {
         bst = new BST<>();
-        photosList = new LinkedList<>();
     }
 
     // Add a photo
     public void addPhoto(Photo p) {
         p.tags.findFirst();
         System.out.println(p.tags);
-        while (!p.tags.last()) {
+        LinkedList<Photo> photosList;
+
+        while (!p.tags.isThereNext()) {
             String tag = p.tags.retrieve();
-            photosList.insert(p);
-            bst.insert(tag, photosList);
-            System.out.println(tag);
+
+            if (bst.findKey(tag)) {
+                photosList = bst.retrieve();
+                photosList.insert(p);
+                bst.update(tag,photosList);
+            } else {
+                photosList = new LinkedList<>();
+                photosList.insert(p);
+                bst.insert(tag, photosList);
+            }
+
 
             p.tags.findNext();
         }
+
     }
 
 

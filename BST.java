@@ -8,6 +8,7 @@ class BSTNode<T> {
         this.data = data;
         left = right = null;
     }
+
     @Override
     public String toString() {
         return toString("");
@@ -139,6 +140,15 @@ public class BST<T> {
         }
 
         return false; // Not found
+    }
+
+    public boolean update(String k, T val) {
+        if (findKey(k)) {
+            current.data = val;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

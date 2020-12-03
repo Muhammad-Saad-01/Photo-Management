@@ -24,6 +24,10 @@ public class LinkedList<T> {
         return current.next == null;
     }
 
+    public boolean isThereNext() {
+        return current == null;
+    }
+
     public boolean full() {
         return false;
     }
