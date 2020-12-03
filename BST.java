@@ -154,7 +154,45 @@ public class BST<T> {
     public BSTNode<T> getRoot() {
         return root;
     }
+    public void printPreOrder(BSTNode<T> node){
+        if (node == null)
+            return;
+        // now deal with the node
+        System.out.println(node.key+" :: "+node.data + " ");
+        // first recur on left subtree
+        printPreOrder(node.left);
 
+        // then recur on right subtree
+        printPreOrder(node.right);
+
+
+    }
+    public void printInOrder(BSTNode<T> node){
+        if (node == null)
+            return;
+
+        // first recur on left subtree
+        printInOrder(node.left);
+        // now deal with the node
+        System.out.println(node.key+" :: "+node.data + " ");
+        // then recur on right subtree
+        printInOrder(node.right);
+
+
+    }
+    public void printPostOrder(BSTNode<T> node){
+        if (node == null)
+            return;
+
+        // first recur on left subtree
+        printPostOrder(node.left);
+
+        // then recur on right subtree
+        printPostOrder(node.right);
+
+        // now deal with the node
+        System.out.println(node.key+" :: "+node.data + " ");
+    }
     @Override
     public String toString() {
         if (root == null)

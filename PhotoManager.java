@@ -1,10 +1,11 @@
 public class PhotoManager {
-    BST<LinkedList<Photo>> bst;
-
+    private BST<LinkedList<Photo>> bst;
+    private LinkedList<Photo> photos;
 
     // Constructor
     public PhotoManager() {
         bst = new BST<>();
+        photos = new LinkedList<>();
     }
 
     // Add a photo
@@ -27,7 +28,8 @@ public class PhotoManager {
 
             tags.findNext();
         }
-
+        //all photos
+        photos.insert(p);
     }
 
 
@@ -67,6 +69,10 @@ public class PhotoManager {
     // Return the inverted index of all managed photos
     public BST<LinkedList<Photo>> getPhotos() {
         return bst;
+    }
+
+    public LinkedList<Photo> getAllPhotos() {
+        return photos;
     }
 
     //add to PhotoManager

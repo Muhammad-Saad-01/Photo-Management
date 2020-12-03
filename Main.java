@@ -22,7 +22,13 @@ public class Main {
         animalsList.insert("cat");
         animalsList.insert("donkey");
         animalsList.insert("monkey");
+        LinkedList<String> animalsList2 = new LinkedList<>();
+        animalsList2.insert("dog2");
+        animalsList2.insert("cat2");
+        animalsList2.insert("donkey2");
+        animalsList2.insert("monkey2");
 
+        System.out.println(animalsList);
         LinkedList<LinkedList<String>> tagsList = new LinkedList<>();
 
         tagsList.insert(animalsList);
@@ -34,9 +40,13 @@ public class Main {
         Photo c = new Photo("monkey.png", animalsList);
         Photo d = new Photo("donkey.png", animalsList);
 
+        Photo p1 = creatPhoto("butterfly2.jpg", "insect", "butterfly", "flower", "black");
+        Photo p2 = creatPhoto("butterfly2.jpg", "insect", "butterfly", "flower", "black");
+
+
         PhotoManager pm = testAdd();
         testDelete();
-        /* testGetPhotos(pm);*/
+        testGetPhotos(pm);
 
 
     }
@@ -45,24 +55,30 @@ public class Main {
 
 
     private static void testGetPhotos(PhotoManager pm) {
+        System.out.println("****Album 1****");
         Album a = new Album("A", "", pm);
         System.out.println(a.getPhotos());
-
+        System.out.println("****Album 2****");
         Album b = new Album("B", "bear", pm);
         System.out.println(b.getPhotos());
 //
+        System.out.println("****Album 3****");
         Album ag = new Album("ab", "animal AND grass", pm);
         System.out.println(ag.getPhotos());
 
+        System.out.println("****Album 4****");
         ag = new Album("ab2", "grass AND animal", pm);
         System.out.println(ag.getPhotos());
 //
+        System.out.println("****Album 5****");
         Album e = new Album("R", "fsdfg", pm);
         System.out.println(e.getPhotos());
 
+        System.out.println("****Album 6****");
         e = new Album("R2", "grass AND fsdfg", pm);
         System.out.println(e.getPhotos());
 
+        System.out.println("****Album 7****");
         Album s = new Album("R", "snow AND bear", pm);
         System.out.println(s.getPhotos());
 //

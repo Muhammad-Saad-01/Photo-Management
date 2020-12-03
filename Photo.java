@@ -23,4 +23,9 @@ public class Photo {
         return "Photo {path=" + path + "}";
     }
 
+    /* @Override
+    public String toString() {
+        return "Photo {path=" + path + " ," + tags + "}";
+    }*/
+
 }

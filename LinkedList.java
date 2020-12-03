@@ -40,6 +40,20 @@ public class LinkedList<T> {
         current = current.next;
     }
 
+    public boolean find(T val) {
+        Node<T> tmp = head;
+        if (tmp == null)
+            return false;
+
+        while (tmp != null) {
+            boolean f = tmp.data == val;
+            if (val.equals(tmp.data))
+                return true;
+            tmp = tmp.next;
+        }
+        return false;
+    }
+
     public T retrieve() {
         return current.data;
     }
@@ -74,6 +88,7 @@ public class LinkedList<T> {
         else
             current = current.next;
     }
+
 
     @Override
     public String toString() {
