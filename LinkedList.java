@@ -73,14 +73,14 @@ public class LinkedList<T> {
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder("{");
+        StringBuilder str = new StringBuilder("[");
         Node<T> temp = head;
 
         while (temp != null) {
-            str.append(temp.data).append(temp.next != null ? "," : "");
+            str.append(temp.data).append(temp.next != null ? ", " : "");
             temp = temp.next;
         }
-        str.append("}");
+        str.append("]");
         return String.valueOf(str);
     }
 
