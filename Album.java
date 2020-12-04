@@ -12,7 +12,7 @@ public class Album {
         this.condition = condition;
         this.manager = manager;
         photosList = new LinkedList<>();
-        numberOfComparisons = 0;
+        numberOfComparisons = 1;
     }
 
     // Return the name of the album
@@ -41,13 +41,12 @@ public class Album {
         } else {
             String[] conditions = condition.trim().split(" AND ");
 
-
             for (String s : conditions) {
                 if (s.length() != 0 && !bst.findKey(s)) {
                     return new LinkedList<>();
                 }
                 if (s.length() != 0 && bst.findKey(s)) {
-                    numberOfComparisons =+ bst.getNumberOfComparisons();
+                    numberOfComparisons += bst.getNumberOfComparisons(s);
                     LinkedList<Photo> photos = bst.retrieve();
                     photos.findFirst();
                     while (photos.isThereNext()) {
@@ -61,12 +60,10 @@ public class Album {
                                     counter++;
                                 }
                             }
-
                             if (!photosList.find(photo) && conditions.length == counter)
                                 photosList.insert(photo);
                             tagsList.findNext();
                         }
-
                         photos.findNext();
                     }
                 }
@@ -81,7 +78,7 @@ public class Album {
 
         if (node == null)
             return;
-
+        numberOfComparisons++;
         LinkedList<Photo> photos = node.data;
         photos.findFirst();
         while (photos.isThereNext()) {
@@ -103,6 +100,8 @@ public class Album {
 
     // Return the number of tag comparisons used to find all photos of the album
     public int getNbComps() {
+        numberOfComparisons = 0;
+        getPhotos();
         return numberOfComparisons;
     }
 }

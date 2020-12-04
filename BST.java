@@ -20,6 +20,23 @@ class BSTNode<T> {
                 ((left == null) ? "" : "\n" + left.toString(ident + '\t')) +
                 ((right == null) ? "" : "\n" + right.toString(ident + '\t'));
     }
+
+
+  /*  public StringBuilder toString(StringBuilder prefix, boolean isTail, StringBuilder sb) {
+        if (right != null) {
+            right.toString(new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
+        }
+        sb.append(prefix).append(isTail ? "└── " : "┌── ").append(key + " = " + data.toString()).append("\n");
+        if (left != null) {
+            left.toString(new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
+        }
+        return sb;
+    }
+
+    @Override
+    public String toString() {
+        return this.toString(new StringBuilder(), true, new StringBuilder()).toString();
+    }*/
 }
 
 public class BST<T> {
@@ -48,7 +65,7 @@ public class BST<T> {
     }
 
     public boolean findKey(String k) {
-        numberOfComparisons = 0;
+        numberOfComparisons = 1;
         BSTNode<T> p = root;
         while (p != null) {
             current = p;
@@ -207,7 +224,8 @@ public class BST<T> {
         return root.toString();
     }
 
-    public int getNumberOfComparisons() {
+    public int getNumberOfComparisons(String k) {
+        findKey(k);
         return numberOfComparisons;
     }
 

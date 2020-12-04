@@ -4,6 +4,33 @@ class Test{
         Test1.main(new String[]{});
         System.out.println("****** Test 2 ******");
         Test2.main(new String[]{});
+        System.out.println("****** Test 3 ******");
+        Test3.main(new String[]{});
+        System.out.println("****** Test 4 ******");
+        Test4.main(new String[]{});
+        System.out.println("****** Test 5 ******");
+        Test5.main(new String[]{});
+        System.out.println("****** Test 6 ******");
+        Test6.main(new String[]{});
+        System.out.println("****** Test 7 ******");
+        Test7.main(new String[]{});
+        System.out.println("****** Test 8 ******");
+        Test8.main(new String[]{});
+        System.out.println("****** Test 9 ******");
+        Test9.main(new String[]{});
+        System.out.println("****** Test 10 *****");
+        Test10.main(new String[]{});
+        System.out.println("****** Test 11 *****");
+        Test11.main(new String[]{});
+        System.out.println("****** Test 12 *****");
+        Test12.main(new String[]{});
+        System.out.println("****** Test 13 *****");
+        Test13.main(new String[]{});
+        System.out.println("****** Test 14 *****");
+        Test14.main(new String[]{});
+        System.out.println("****** Test 15 *****");
+        Test15.main(new String[]{});
+
     }
 }
 
@@ -81,8 +108,10 @@ class Test1 {
         pm.addPhoto(p8);
 
         Album a = new Album("bears", "insect", pm);
+        System.out.println(pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getPhotos());
+        System.out.println(a.getNbComps() == 5);
     }
 }
 
@@ -165,8 +194,9 @@ class Test2 {
         pm.addPhoto(p8);
 
         Album a = new Album("bears", "insect AND black", pm);
+        System.out.println(pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps() == 12);
     }
 }
 /*
@@ -250,7 +280,7 @@ class Test3 {
 
         Album a = new Album("bears", "bear AND grass", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps() == 7);
     }
 }
 
@@ -334,7 +364,7 @@ class Test4 {
 
         Album a = new Album("bears", "bear AND grass", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==6);
     }
 }
 
@@ -419,7 +449,7 @@ class Test5 {
 
         Album a = new Album("bears", "bear AND grass AND animal", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==7);
     }
 }
 
@@ -503,7 +533,7 @@ class Test6 {
 
         Album a = new Album("bears", "insect", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==6);
     }
 }
 
@@ -587,7 +617,7 @@ class Test7 {
 
         Album a = new Album("bears", "insect AND black", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==14);
     }
 }
 /*
@@ -671,7 +701,7 @@ class Test8 {
 
         Album a = new Album("bears", "bear AND grass", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==9);
     }
 }
 
@@ -755,7 +785,7 @@ class Test9 {
 
         Album a = new Album("bears", "bear AND grass", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==8);
     }
 }
 
@@ -840,7 +870,7 @@ class Test10 {
 
         Album a = new Album("bears", "bear AND grass AND animal", pm);
 
-        System.out.println(a.getNbComps());
+        System.out.println(a.getNbComps()==10);
     }
 }
 /*

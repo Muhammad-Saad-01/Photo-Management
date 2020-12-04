@@ -1,13 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-
+        System.out.println(method(8));
         PhotoManager pm = testAdd();
         testDelete();
         testGetPhotos(pm);
 
 
     }
-
+    public static int method(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return 2 * method(n - 1);
+        }
+    }
     //these are some simple test cases that cover the basic utility of the PA
 
 
@@ -26,28 +32,28 @@ public class Main {
         Album ag = new Album("ab", "animal AND grass", pm);
         System.out.println(ag.getPhotos());
         System.out.println(ag.getNbComps());
-
-        System.out.println("****Album 4****");
+/*
+        //System.out.println("****Album 4****");
         ag = new Album("ab2", "grass AND animal", pm);
         System.out.println(ag.getPhotos());
-        System.out.println(ag.getNbComps());
+        //System.out.println(ag.getNbComps());
 
-        System.out.println("****Album 5****");
+        //System.out.println("****Album 5****");
         Album e = new Album("R", "fsdfg", pm);
         System.out.println(e.getPhotos());
-        System.out.println(e.getNbComps());
+        //System.out.println(e.getNbComps());
 
-        System.out.println("****Album 6****");
+        //System.out.println("****Album 6****");
         e = new Album("R2", "grass AND fsdfg", pm);
         System.out.println(e.getPhotos());
-        System.out.println(e.getNbComps());
+        //System.out.println(e.getNbComps());
 
-        System.out.println("****Album 7****");
+        //System.out.println("****Album 7****");
         Album s = new Album("R", "snow AND bear", pm);
         System.out.println(s.getPhotos());
-        System.out.println(s.getNbComps());
+        //System.out.println(s.getNbComps());
 
-//
+//*/
     }
 
     private static PhotoManager testAdd() {
